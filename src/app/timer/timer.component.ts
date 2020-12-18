@@ -18,7 +18,7 @@ export class TimerComponent{
   callTimer(value,counter) {
     let timerId = setInterval(function() {
       let dateTime= new Date();
-      this.time = dateTime.toLocaleTimeString();
+      this.time = dateTime.toLocaleTimeString('it-IT');
       console.log(this.time);
       localStorage.setItem('curr_time',this.time);
       localStorage.setItem('counter',counter.toString());
