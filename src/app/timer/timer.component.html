@@ -1,0 +1,31 @@
+<b>Timer: {{countDown}}</b>
+<div class="row">
+    <div class="col-md-4">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{cur_percentage}" aria-valuemin="0" aria-valuemax="100" [style.width]="cur_percentage + '%'">
+            {{cur_percentage}}%
+            </div>
+         </div>
+    </div>
+    <div class= "col-md-6">
+        <form  #f="ngForm" >
+            <div class="form-group">
+                <input required ngModel name = "mins" #mins ="ngModel">
+                <label for ="mins"> mins </label>
+                <div *ngIf = "mins.touched && mins.invalid" class="alert alert-danger">
+                    <div *ngIf="mins.errors.required"> Please enter Time in minutes</div>
+                </div>
+            </div>
+            <span>
+                <button class="btn btn-primary btn-space" (click) = "start(f.value)" [disabled]="f.invalid"> Start </button>
+                <button class="btn btn-primary btn-space" (click)="stop(f)" [disabled]="f.invalid"> Stop </button>
+                <button class="btn btn-primary btn-space" (click)="reset(f)"> Reset </button>
+            </span>
+        </form>
+    </div>
+</div>
+
+
+
+
+
