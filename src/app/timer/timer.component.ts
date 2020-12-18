@@ -19,7 +19,6 @@ export class TimerComponent{
     let timerId = setInterval(function() {
       let dateTime= new Date();
       this.time = dateTime.toLocaleTimeString('it-IT');
-      console.log(this.time);
       localStorage.setItem('curr_time',this.time);
       localStorage.setItem('counter',counter.toString());
       if (counter==60*parseInt(value.mins)) {
@@ -30,7 +29,6 @@ export class TimerComponent{
       this.percentage = Math.floor((counter/(60*parseInt(value.mins)))*100)
         if (this.percentage <=100) {
           localStorage.setItem('percentage',this.percentage);
-        console.log(this.percentage)
         }
     }, 1000);
     this.timerId=timerId
