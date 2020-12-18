@@ -1,13 +1,14 @@
-<b>Timer: {{countDown}}</b>
+<h3 class="text-center font-weight-bold" font> <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i> CountDown Timer </h3>
+<b class="ml-4">Timer: {{countDown}}</b>
 <div class="row">
     <div class="col-md-4">
-        <div class="progress">
+        <div class="progress ml-4">
             <div class="progress-bar" role="progressbar" aria-valuenow="{cur_percentage}" aria-valuemin="0" aria-valuemax="100" [style.width]="cur_percentage + '%'">
             {{cur_percentage}}%
             </div>
          </div>
     </div>
-    <div class= "col-md-6">
+    <div class= "col-md-8">
         <form  #f="ngForm" >
             <div class="form-group">
                 <input required ngModel name = "mins" #mins ="ngModel" pattern="\d*" [disabled]="toggleButton">

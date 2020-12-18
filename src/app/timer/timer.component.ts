@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { exit } from 'process';
-import { Observable, timer } from 'rxjs';
 
 @Component({
   selector: 'app-timer',
