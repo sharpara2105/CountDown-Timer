@@ -10,16 +10,17 @@
     <div class= "col-md-6">
         <form  #f="ngForm" >
             <div class="form-group">
-                <input required ngModel name = "mins" #mins ="ngModel">
+                <input required ngModel name = "mins" #mins ="ngModel" pattern="\d*" [disabled]="toggleButton">
                 <label for ="mins"> mins </label>
                 <div *ngIf = "mins.touched && mins.invalid" class="alert alert-danger">
                     <div *ngIf="mins.errors.required"> Please enter Time in minutes</div>
+                    <div *ngIf="mins.errors.pattern"> Please enter Time as a positive number</div>
                 </div>
             </div>
             <span>
-                <button class="btn btn-primary btn-space" (click) = "start(f.value)" [disabled]="f.invalid"> Start </button>
-                <button class="btn btn-primary btn-space" (click)="stop(f)" [disabled]="f.invalid"> Stop </button>
-                <button class="btn btn-primary btn-space" (click)="reset(f)"> Reset </button>
+                <button class="btn btn-primary btn-space" (click) = "start(f.value);disable();disableButton();" [disabled]="f.invalid || toggleValue"> Start </button>
+                <button class="btn btn-primary btn-space" (click)="stop(f);enableButton();" [disabled]="f.invalid ||!toggleValue"> Stop</button>
+                <button class="btn btn-primary btn-space" (click)="reset(f);enable();enableButton();"> Reset </button>
             </span>
         </form>
     </div>

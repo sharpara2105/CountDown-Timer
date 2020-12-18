@@ -8,6 +8,8 @@ import { Observable, timer } from 'rxjs';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent{
+  public toggleButton: boolean = false;
+  public toggleValue: boolean = false;
   time;
   secondary_flag = true;
   stop_flag = false;
@@ -82,4 +84,19 @@ stop(f){
   this.secondary_flag = true;
   
 }
+enable(){
+  this.toggleButton = false
+}
+
+disable(){
+  this.toggleButton = true
+}
+enableButton(){
+  this.toggleValue = false
+}
+
+disableButton(){
+  this.toggleValue = true
+}
+
 }
